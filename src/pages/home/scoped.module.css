@@ -1,0 +1,10 @@
+/* Homepage specific Scoped CSS */
+
+.topBarSpacing {
+  padding: 1rem .25rem;
+}
+
+.menuImageContainer {
+  max-width: 150px;
+  padding-top: 0.25rem !important;
+}
