@@ -9,7 +9,7 @@ const SearchBar = class extends Component {
           <input type="text" className={ imageSearchTextBox } placeholder="Search for Videos" />
         </div>
         <div className="cell small-4 medium-2">
-          <input type="submit" className="radius bordered button" value="Search" />
+          <input type="submit" className="radius bordered hollow button alert" value="Search" />
         </div>
       </form>
     </Fragment>;
