@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const API_KEY = 'AIzaSyDoSvfykhzw-7w2BJxCqVtTN1bPSeG39bM';
 
-export default axios.create({
+const youtubeApi = axios.create({
   baseURL: 'https://www.googleapis.com/youtube/v3',
   params: {
     part: 'snippet',
@@ -12,3 +12,5 @@ export default axios.create({
     key: API_KEY,
   },
 });
+
+export default youtubeApi;

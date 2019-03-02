@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import SearchBar from '../../components/search-bar/script';
+import VideoList from '../../components/video-list/script';
 import youtubeApi from '../../api/youtube';
 import logo from '../../assets/logo.png';
 import { topBarSpacing, menuImageContainer } from './scoped.module.css';
@@ -28,7 +29,7 @@ const Home = class extends Component {
           </ul>
         </div>
       </div>
-      { console.log({ videos }) }
+      <VideoList videos={ videos } />
     </Fragment>;
   }
 };
