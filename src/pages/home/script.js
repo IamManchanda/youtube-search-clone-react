@@ -5,11 +5,18 @@ import logo from '../../assets/logo.png';
 import { topBarSpacing, menuImageContainer } from './scoped.module.css';
 
 const Home = class extends Component {
-  handleFormSubmit = (searchTerm) => {
-    youtubeApi.get('/search', { params: { q: searchTerm } });
+  state = {
+    videos: [],
+  };
+
+  handleFormSubmit = async (searchTermReceived) => {
+    const response = await youtubeApi.get('/search', { params: { q: searchTermReceived } });
+    const { items: videos  } = response.data;
+    this.setState({ videos });
   };
 
   render() {
+    const { videos } = this.state;
     return <Fragment>
       <div className={ `top-bar shadow ${topBarSpacing}`}>
         <div className="top-bar-left">
@@ -21,6 +28,7 @@ const Home = class extends Component {
           </ul>
         </div>
       </div>
+      { console.log({ videos }) }
     </Fragment>;
   }
 };
