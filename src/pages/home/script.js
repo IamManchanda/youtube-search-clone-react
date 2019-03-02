@@ -8,12 +8,17 @@ import { topBarSpacing, menuImageContainer, frameBodySpacing } from './scoped.mo
 const Home = class extends Component {
   state = {
     videos: [],
+    selectedVideo: null,
   };
 
-  handleFormSubmit = async (searchTermReceived) => {
+  handleFormSubmission = async (searchTermReceived) => {
     const response = await youtubeApi.get('/search', { params: { q: searchTermReceived } });
     const { items: videos  } = response.data;
     this.setState({ videos });
+  };
+
+  handleVideoSelection = (video) => {
+    console.log({ video });
   };
 
   render() {
@@ -29,7 +34,7 @@ const Home = class extends Component {
                 </li>
                 <li>
                   <SearchBar 
-                    onFormSubmit={ this.handleFormSubmit }
+                    onFormSubmit={ this.handleFormSubmission }
                     videosLength={ videos.length }
                   />
                 </li>
@@ -42,7 +47,10 @@ const Home = class extends Component {
             <div className="cell medium-6 large-9 medium-cell-block-y">
             </div>
             <div className="cell medium-6 large-3 medium-cell-block-y">
-              <VideoList videos={ videos } />
+              <VideoList 
+                videos={ videos }
+                onVideoSelect={ this.handleVideoSelection }
+              />
             </div>
           </div>
         </div>

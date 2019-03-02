@@ -1,30 +1,30 @@
 import React, { Fragment } from 'react';
-import { cardSizing } from './scoped.module.css';
+import { cardContainer } from './scoped.module.css';
 
-const VideoListItem = ({ video }) => {
+const VideoListItem = ({ video, onVideoSelect }) => {
   const { title: videoTitle } = video.snippet;
   const { url: videoThumbnail } = video.snippet.thumbnails.medium;
   const { channelTitle: videoChannelTitle }  = video.snippet;
   const { description: videoDescription } = video.snippet;
   return <Fragment>
-    <a>
-      <div className={ `radius bordered shadow card ${cardSizing}` }>
-        <img src={ videoThumbnail } alt={ videoTitle } />
-        <div className="card-divider">
-          <strong>{ videoChannelTitle }</strong>
-        </div>
-        <div className="card-section">
-        <h5>{ videoTitle }</h5>
-        <p>{ videoDescription }</p>
-        </div>
+    <div 
+      className={ `radius bordered shadow card ${cardContainer}` }
+      onClick={ () => onVideoSelect(video) }>
+      <img src={ videoThumbnail } alt={ videoTitle } />
+      <div className="card-divider">
+        <strong>{ videoChannelTitle }</strong>
       </div>
-    </a>
-    { console.log({ video }) }
+      <div className="card-section">
+      <h5>{ videoTitle }</h5>
+      <p>{ videoDescription }</p>
+      </div>
+    </div>
   </Fragment>;
 };
 
 VideoListItem.defaultProps = {
-  video: {},
+  video: null,
+  onVideoSelect: null,
 };
 
 export default VideoListItem;
