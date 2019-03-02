@@ -24,10 +24,6 @@ const Home = class extends Component {
     this.setState({ selectedVideo });
   };
 
-  componentDidMount() {
-    this.handleFormSubmission('');
-  }
-
   render() {
     const { videos, selectedVideo } = this.state;
     return <Fragment>

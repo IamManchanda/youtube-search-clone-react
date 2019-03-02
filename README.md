@@ -1,8 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# YouTube Search Clone in React
 
-## Available Scripts
+## Credits
 
-In the project directory, you can run:
+This YouTube Search Clone was made while learning from this below tutorial.
+
+- [Modern React with Redux [2019 Update]](https://www.udemy.com/react-redux/)
+
+That being said, lot of Styling is either mine or from [Foundation Framework](https://foundation.zurb.com/sites/docs/). Moreover all the codes in the source code (Logic and/or Styling) has been written with with my preferred coding style.
+
+## Installation & Usage
+
+1. Install [Node](https://nodejs.org/en/) (& `npm` that comes with it)
+2. Run `npm install`
+3. Obtain a developer key for the YouTube Data API v3. See this official [video](https://www.youtube.com/watch?v=Im69kzhpR3I) for the reference on how to do the same.
+4. Copy that API KEY and update it [here](https://github.com/IamManchanda/youtube-search-clone-react/blob/master/src/api/youtube.js#L5).
+5. Run `npm start` to run this on your local server.
 
 ### `npm start`
 
@@ -11,6 +23,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+## More Details (Optional)
+
+See more details below if you want to do more in case.
 
 ### `npm test`
 
