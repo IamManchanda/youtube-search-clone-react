@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { cardSizing } from './scoped.module.css';
 
 const VideoListItem = ({ video }) => {
   const { title: videoTitle } = video.snippet;
@@ -7,7 +8,7 @@ const VideoListItem = ({ video }) => {
   const { description: videoDescription } = video.snippet;
   return <Fragment>
     <a>
-      <div className="radius bordered shadow card">
+      <div className={ `radius bordered shadow card ${cardSizing}` }>
         <img src={ videoThumbnail } alt={ videoTitle } />
         <div className="card-divider">
           <strong>{ videoChannelTitle }</strong>
@@ -18,6 +19,7 @@ const VideoListItem = ({ video }) => {
         </div>
       </div>
     </a>
+    { console.log({ video }) }
   </Fragment>;
 };
 

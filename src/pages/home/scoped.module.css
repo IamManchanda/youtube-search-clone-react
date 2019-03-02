@@ -8,3 +8,7 @@
   max-width: 150px;
   padding-top: 0.2rem !important;
 }
+
+.frameBodySpacing {
+  margin-top: 1rem;
+}

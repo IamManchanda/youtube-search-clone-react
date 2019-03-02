@@ -3,7 +3,7 @@ import SearchBar from '../../components/search-bar/script';
 import VideoList from '../../components/video-list/script';
 import youtubeApi from '../../api/youtube';
 import logo from '../../assets/logo.png';
-import { topBarSpacing, menuImageContainer } from './scoped.module.css';
+import { topBarSpacing, menuImageContainer, frameBodySpacing } from './scoped.module.css';
 
 const Home = class extends Component {
   state = {
@@ -37,11 +37,11 @@ const Home = class extends Component {
             </div>
           </div>
         </div>
-        <div className="cell medium-auto medium-cell-block-container">
-          <div className="grid-x grid-padding-x grid-padding-y">
-            <div className="cell medium-8 large-9 medium-cell-block-y">
+        <div className={ `cell medium-auto medium-cell-block-container ${frameBodySpacing}` }>
+          <div className="grid-x grid-padding-x">
+            <div className="cell medium-6 large-9 medium-cell-block-y">
             </div>
-            <div className="cell medium-4 large-3 medium-cell-block-y">
+            <div className="cell medium-6 large-3 medium-cell-block-y">
               <VideoList videos={ videos } />
             </div>
           </div>

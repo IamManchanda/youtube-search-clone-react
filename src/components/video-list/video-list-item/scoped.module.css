@@ -1,0 +1,6 @@
+/* Video List Item specific Scoped CSS */
+
+.cardSizing {
+  max-width: 320px;
+  float: right;
+}
