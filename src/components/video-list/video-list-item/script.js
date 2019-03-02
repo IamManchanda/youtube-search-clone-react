@@ -10,7 +10,7 @@ const VideoListItem = ({ video }) => {
       <div className="radius bordered shadow card">
         <img src={ videoThumbnail } alt={ videoTitle } />
         <div className="card-divider">
-          { videoChannelTitle }
+          <strong>{ videoChannelTitle }</strong>
         </div>
         <div className="card-section">
         <h5>{ videoTitle }</h5>
@@ -18,7 +18,6 @@ const VideoListItem = ({ video }) => {
         </div>
       </div>
     </a>
-    { console.log({ video }) }
   </Fragment>;
 };
 

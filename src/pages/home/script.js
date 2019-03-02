@@ -27,7 +27,12 @@ const Home = class extends Component {
                 <li className={ `menu-text ${menuImageContainer}` }>
                   <img src={logo} alt="YouTube Logo" titile="YouTube" />
                 </li>
-                <li><SearchBar onFormSubmit={ this.handleFormSubmit } /></li>
+                <li>
+                  <SearchBar 
+                    onFormSubmit={ this.handleFormSubmit }
+                    videosLength={ videos.length }
+                  />
+                </li>
               </ul>
             </div>
           </div>

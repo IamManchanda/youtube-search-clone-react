@@ -4,6 +4,7 @@ import { imageSearchTextBox } from './scoped.module.css';
 const SearchBar = class extends Component {
   state = {
     searchTerm: '',
+    allowUpdatingSearchTerm: true,
   };
 
   handleInputChange = (event) => {
@@ -16,7 +17,14 @@ const SearchBar = class extends Component {
     const { searchTerm } = this.state;
     const { onFormSubmit } = this.props;
     onFormSubmit(searchTerm);
+    this.setState({ allowUpdatingSearchTerm: true, });
   };
+
+  componentDidUpdate() {
+    if (this.props.videosLength && this.state.allowUpdatingSearchTerm) {
+      this.setState({ searchTerm: '', allowUpdatingSearchTerm: false, });
+    }
+  }
 
   render() {
     const { searchTerm } = this.state;
@@ -43,6 +51,7 @@ const SearchBar = class extends Component {
 
 SearchBar.defaultProps = {
   onFormSubmit: () => {},
+  videosLength: 0,
 };
 
 export default SearchBar;
