@@ -10,7 +10,7 @@ const VideoList = ({ videos, onVideoSelect }) => videos
 
 VideoList.defaultProps = {
   videos: [],
-  onVideoSelect: null,
+  onVideoSelect: () => {},
 };
 
 export default VideoList;

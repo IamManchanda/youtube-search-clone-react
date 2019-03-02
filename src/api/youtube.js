@@ -8,7 +8,8 @@ const youtubeApi = axios.create({
   baseURL: 'https://www.googleapis.com/youtube/v3',
   params: {
     part: 'snippet',
-    maxResults: 20,
+    type: 'video',
+    maxResults: 10,
     key: API_KEY,
   },
 });

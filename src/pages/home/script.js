@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import SearchBar from '../../components/search-bar/script';
 import VideoList from '../../components/video-list/script';
+import VideoDetail from '../../components/video-detail/script';
 import youtubeApi from '../../api/youtube';
 import logo from '../../assets/logo.png';
 import { topBarSpacing, menuImageContainer, frameBodySpacing } from './scoped.module.css';
@@ -11,18 +12,24 @@ const Home = class extends Component {
     selectedVideo: null,
   };
 
-  handleFormSubmission = async (searchTermReceived) => {
-    const response = await youtubeApi.get('/search', { params: { q: searchTermReceived } });
+  handleFormSubmission = async (q) => {
+    const response = await youtubeApi.get('/search', { params: { q } });
     const { items: videos  } = response.data;
-    this.setState({ videos });
+    const [selectedVideo] = videos;
+    console.log({ selectedVideo });
+    this.setState({ videos, selectedVideo });
   };
 
-  handleVideoSelection = (video) => {
-    console.log({ video });
+  handleVideoSelection = (selectedVideo) => {
+    this.setState({ selectedVideo });
   };
+
+  componentDidMount() {
+    this.handleFormSubmission('');
+  }
 
   render() {
-    const { videos } = this.state;
+    const { videos, selectedVideo } = this.state;
     return <Fragment>
       <div className="grid-y medium-grid-frame">
         <div className="cell shrink header medium-cell-block-container">
@@ -45,6 +52,7 @@ const Home = class extends Component {
         <div className={ `cell medium-auto medium-cell-block-container ${frameBodySpacing}` }>
           <div className="grid-x grid-padding-x">
             <div className="cell medium-6 large-9 medium-cell-block-y">
+              <VideoDetail selectedVideo={ selectedVideo } />
             </div>
             <div className="cell medium-6 large-3 medium-cell-block-y">
               <VideoList 

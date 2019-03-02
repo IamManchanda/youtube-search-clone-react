@@ -5,7 +5,6 @@ const VideoListItem = ({ video, onVideoSelect }) => {
   const { title: videoTitle } = video.snippet;
   const { url: videoThumbnail } = video.snippet.thumbnails.medium;
   const { channelTitle: videoChannelTitle }  = video.snippet;
-  const { description: videoDescription } = video.snippet;
   return <Fragment>
     <div 
       className={ `radius bordered shadow card ${cardContainer}` }
@@ -15,8 +14,7 @@ const VideoListItem = ({ video, onVideoSelect }) => {
         <strong>{ videoChannelTitle }</strong>
       </div>
       <div className="card-section">
-      <h5>{ videoTitle }</h5>
-      <p>{ videoDescription }</p>
+        <h5>{ videoTitle }</h5>
       </div>
     </div>
   </Fragment>;
@@ -24,7 +22,7 @@ const VideoListItem = ({ video, onVideoSelect }) => {
 
 VideoListItem.defaultProps = {
   video: null,
-  onVideoSelect: null,
+  onVideoSelect: () => {},
 };
 
 export default VideoListItem;
